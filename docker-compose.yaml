@@ -1,0 +1,14 @@
+version: '3'
+services:
+  podcast-sponsor-block:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: podcast-sponsor-block
+    hostname: podcast-sponsor-block
+    env_file:
+      - /mnt/data/supervisor/homeassistant/podcast-sponsor-block/configuration.env
+    volumes:
+      - "/mnt/data/media/podcast-sponsor-block:/app/data"
+    ports:
+      - "7637:7637"
